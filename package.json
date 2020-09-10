@@ -21,12 +21,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:start:app": "BROWSER=none react-scripts -r @cypress/instrument-cra start",
     "cypress:start:wait": "start-server-and-test cypress:start:app http://localhost:3000",
     "cypress:open": "npm run cypress:start:wait -- \"cypress open\"",
-    "cypress:run": "npm run cypress:start:wait -- \"cypress run\""
+    "cypress:run": "npm run cypress:start:wait -- \"cypress run\"",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:3030 cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"
