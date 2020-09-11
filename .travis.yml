@@ -6,12 +6,13 @@ cache: npm
 
 install:
   - npm install
+  - npm ci
 
 before_script:
   - npm run build
 
 script:
-  - npm run cypress:ci
+  - $(npm bin)/cypress run --record
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
