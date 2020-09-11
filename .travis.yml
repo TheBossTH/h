@@ -19,7 +19,7 @@ install:
   - npm ci
 
 before_script:
-  - npm run start
+  - npm run start:ci
 script:
   - $(npm bin)/cypress run --record
 
