@@ -2,16 +2,16 @@ language: node_js
 node_js:
   - 12.18.3
 
-cache: yarn
+cache: npm
 
 install:
-  - yarn
+  - npm install
 
 before_script:
-  - yarn build
+  - npm run build
 
 script:
-  - yarn cypress:ci
+  - npm run cypress:ci
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
