@@ -1,24 +1,13 @@
 language: node_js
 node_js:
-  - 10
-addons:
-  apt:
-    packages:
-      - libgconf-2-4
+  - "stable"
+
 cache:
-  npm: true
   directories:
-    - ~/.cache
+    - node_modules
 
-install:
-  - npm install
-  - npm ci
-
-before_script:
-  - npm run build
-  - npm run start:ci --silent &
 script:
-  - $(npm bin)/cypress run --record
+  - npm run cypress:run
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
