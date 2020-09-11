@@ -9,7 +9,7 @@ before_script:
   - yarn start:ci --silent &
 
 script:
-  - $(npm bin)/cypress:run
+  - $(yarn bin)/cypress:ci
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
