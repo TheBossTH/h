@@ -29,7 +29,7 @@
     "cy:run": "cypress run",
     "test": "start-server-and-test start http-get://localhost:3030 cy:run",
     "cypress:ci": "cypress run --record --key {ourUniqueKey}",
-    "start:ci": "http-server build -p 3000 --proxy https://localhost",
+    "start:ci": "http-server build -p 3000 --proxy https://{ourUniqueURL}.com",
     "build:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/main.css"
   },
   "eslintConfig": {
