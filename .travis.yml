@@ -1,21 +1,21 @@
 language: node_js
 node_js:
-  - 10
-addons:
-  apt:
-    packages:
-      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
-      - libgconf-2-4
-cache:
-  yarn: true
-  directories:
-    - node_modules
-install:
-  - yarn
+  - "stable"
 
-before_script:
-  - yarn build
-  - yarn start:ci --silent &
+cache: npm
+
+install:
+  - npm install
 
 script:
-  - yarn cypress:ci
+  - npm run build:css
+  - npm run cypress:run
+
+after_success:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
